@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bttt2j3iursfh"]
-
-[ext_resource type="Script" uid="uid://6x8fo5kenas" path="res://orbit_script.gd" id="1_0f027"]
+[gd_scene load_steps=5 format=3 uid="uid://bttt2j3iursfh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0f027"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,7 +29,6 @@ shadow_enabled = true
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-script = ExtResource("1_0f027")
 
 [node name="DefaultCube" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_0f027")

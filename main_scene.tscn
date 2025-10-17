@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bttt2j3iursfh"]
+[gd_scene load_steps=7 format=3 uid="uid://bttt2j3iursfh"]
+
+[ext_resource type="Script" uid="uid://6x8fo5kenas" path="res://orbit_script.gd" id="1_0f027"]
+[ext_resource type="Script" uid="uid://6pxjf5ai40et" path="res://data_loader.gd" id="2_2c62f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0f027"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,9 +31,19 @@ shadow_enabled = true
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
+[node name="HSlider" type="HSlider" parent="UILayer"]
+offset_right = 362.0
+offset_bottom = 152.0
+value = 1.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("1_0f027")
 
 [node name="DefaultCube" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_0f027")
 
 [node name="DataLoader" type="Node3D" parent="."]
+script = ExtResource("2_2c62f")
+
+[connection signal="value_changed" from="UILayer/HSlider" to="DataLoader" method="_on_h_slider_value_changed"]

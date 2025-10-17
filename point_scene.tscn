@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://2tqp5wyekbfm"]
+[gd_scene load_steps=2 format=3 uid="uid://2tqp5wyekbfm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wjea0"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="PointScene" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wjea0")

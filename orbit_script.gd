@@ -19,6 +19,12 @@ func _unhandled_input(event):
 		distance = max(1.5, distance * 0.9); _update_transform()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 		distance *= 1.1; _update_transform()
+	if event is InputEventKey and event.keycode == KEY_LEFT:
+		distance = max(1.5, distance * 0.9); _update_transform()
+	if event is InputEventKey and event.keycode == KEY_RIGHT:
+		distance *= 1.1; _update_transform()
+
+
 
 func _update_transform():
 	var rot := Basis(Vector3.UP, yaw) * Basis(Vector3.RIGHT, pitch)

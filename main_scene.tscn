@@ -1,13 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bttt2j3iursfh"]
+[gd_scene load_steps=6 format=3 uid="uid://bttt2j3iursfh"]
 
 [ext_resource type="Script" uid="uid://6x8fo5kenas" path="res://orbit_script.gd" id="1_0f027"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0f027"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2c62f"]
+sky_material = SubResource("ProceduralSkyMaterial_0f027")
+
+[sub_resource type="Environment" id="Environment_gyfs4"]
+background_mode = 2
+sky = SubResource("Sky_2c62f")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_0f027"]
 
 [node name="MainScene" type="Node3D"]
+
+[node name="ENV" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ENV"]
+environment = SubResource("Environment_gyfs4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ENV"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 script = ExtResource("1_0f027")
 
 [node name="DefaultCube" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_0f027")
+
+[node name="DataLoader" type="Node3D" parent="."]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt5qo6qjbln4i"]
+
+[ext_resource type="Shader" uid="uid://n8ai4oh674ec" path="res://shader_exercises/1_2D_basics/make_blue.gdshader" id="1_8q5d6"]
+[ext_resource type="Texture2D" uid="uid://did8dxkctpw03" path="res://shader_exercises/1_2D_basics/wu_tsai_100_college.jpg" id="1_m7tyy"]
+[ext_resource type="Shader" uid="uid://dsrylbo77k35p" path="res://shader_exercises/1_2D_basics/increase_brightness.gdshader" id="3_yaqp2"]
+[ext_resource type="Shader" uid="uid://d0leek630a3co" path="res://shader_exercises/1_2D_basics/make_grayscale.gdshader" id="4_0uxur"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmt76"]
+shader = ExtResource("1_8q5d6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uxur"]
+shader = ExtResource("3_yaqp2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2imxi"]
+shader = ExtResource("4_0uxur")
+
+[node name="Scene" type="Node2D"]
+
+[node name="pictures" type="Node2D" parent="."]
+position = Vector2(177, 215)
+
+[node name="make_blue" type="Sprite2D" parent="pictures"]
+material = SubResource("ShaderMaterial_qmt76")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_m7tyy")
+centered = false
+
+[node name="increase_brightness" type="Sprite2D" parent="pictures"]
+material = SubResource("ShaderMaterial_0uxur")
+position = Vector2(267, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_m7tyy")
+centered = false
+
+[node name="make_grayscale" type="Sprite2D" parent="pictures"]
+material = SubResource("ShaderMaterial_2imxi")
+position = Vector2(534, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_m7tyy")
+centered = false

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfw5cxlj6ds2"]
+
+[ext_resource type="Shader" uid="uid://dx8yurv1u7eth" path="res://shader_exercises/3_water_shader/water_shader.gdshader" id="1_okn8m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ggcqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okn8m"]
+shader = ExtResource("1_okn8m")
+
+[node name="Scene" type="Node3D"]
+
+[node name="water_plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ggcqy")
+surface_material_override/0 = SubResource("ShaderMaterial_okn8m")

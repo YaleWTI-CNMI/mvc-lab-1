@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfocdlg7cbuv"]
+
+[ext_resource type="Texture2D" uid="uid://djtug3hc6uljy" path="res://shader_exercises/5_blurring/venice.jpeg" id="1_8javg"]
+[ext_resource type="Shader" uid="uid://ud1ulg0rv5et" path="res://shader_exercises/5_blurring/blur_shader.gdshader" id="1_h1uk3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4mjp"]
+shader = ExtResource("1_h1uk3")
+
+[node name="Scene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i4mjp")
+position = Vector2(200, 0)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_8javg")
+centered = false

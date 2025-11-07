@@ -5,6 +5,8 @@
 ### `TEXTURE`: the texture object (i.e. our Wu Tsai image);
 - Can sample (get) a pixel from it by using the function: `texture(TEXTURE, vec2)`, where vec2 is a vector with 2 components in the range `[0, 1]`.
 
+### `TEXTURE_PIXEL_SIZE`: normalized pixel size of the texture
+- For a texture of size 64x32px, `TEXTURE_PIXEL_SIZE = vec2(1/64, 1/32)`
 
 ### `UV`: a vec2 representing which pixel is being shaded right now
 - It has 2 components x, y representing in the range `[0, 1]`.

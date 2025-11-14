@@ -7,6 +7,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_2bt3j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q57a6"]
+albedo_color = Color(0.204486, 0.506109, 0.595489, 1)
+roughness = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myhw2"]
 resource_name = "DF641019"
@@ -71,16 +73,23 @@ glow_enabled = true
 [node name="Scene" type="Node3D"]
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212812, 0.00301158, -0.00213122)
 mesh = SubResource("SphereMesh_2bt3j")
 surface_material_override/0 = SubResource("StandardMaterial3D_q57a6")
 
 [node name="Chair" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.000999987, 0, 0, 0, 0.000999987, 0, 0, 0, 0.000999987, 1.56032, 0, 0)
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 1.9283, 0, 0)
 mesh = SubResource("ArrayMesh_3w4n2")
 skeleton = NodePath("")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.634731, -0.567893, 0.524037, -4.44109e-08, 0.67816, 0.734915, -0.772733, -0.466473, 0.430449, -0.253326, 1.3946, 0)
+visible = false
+light_color = Color(0.954746, 1.92523e-07, 0.561567, 1)
+light_energy = 16.0
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.486335, 0.642148, -0.592557, 0, 0.67816, 0.734915, 0.873772, -0.357415, 0.329813, 0, 0, 0)
+transform = Transform3D(0.634731, -0.567893, 0.524037, -4.44109e-08, 0.67816, 0.734914, -0.772733, -0.466473, 0.430449, -2.07818, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

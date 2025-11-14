@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbcgtbwwrt4t4"]
+
+[ext_resource type="Shader" uid="uid://cb5pm178pv650" path="res://shader_solutions/3_water_shader_sol/water_shader.gdshader" id="1_207kf"]
+[ext_resource type="Texture2D" uid="uid://dihwrdx3x3slw" path="res://shader_solutions/3_water_shader_sol/water_normal_map.jpg" id="2_fdivs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fdivs"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_ddaof"]
+sky_material = SubResource("ProceduralSkyMaterial_fdivs")
+
+[sub_resource type="Environment" id="Environment_cjul6"]
+background_mode = 2
+sky = SubResource("Sky_ddaof")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_fdivs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddaof"]
+render_priority = 0
+shader = ExtResource("1_207kf")
+shader_parameter/normalMap = ExtResource("2_fdivs")
+shader_parameter/flowSpeed = 1.0
+shader_parameter/waveFreq = 4.28
+shader_parameter/waterColor = Color(0.0858, 0.25311, 0.39, 1)
+shader_parameter/waterColor2 = Color(0.1836, 0.54, 0.53406, 1)
+shader_parameter/normalScale = 0.42
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fdivs"]
+subdivide_width = 100
+subdivide_depth = 100
+
+[node name="Scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cjul6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, 0.0574686, 0.496686, 0, 0.993373, -0.114937, -0.5, -0.0995385, -0.860286, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017941, 0, 2.02171)
+mesh = SubResource("SphereMesh_fdivs")
+skeleton = NodePath("../water_plane")
+surface_material_override/0 = SubResource("ShaderMaterial_ddaof")
+
+[node name="water_plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00128448, 0.00221562, -0.00362921)
+mesh = SubResource("PlaneMesh_fdivs")
+surface_material_override/0 = SubResource("ShaderMaterial_ddaof")
